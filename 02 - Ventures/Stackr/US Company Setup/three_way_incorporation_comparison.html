@@ -1,0 +1,184 @@
+
+<style>
+  .wrap { padding: 1rem 0; font-size: 14px; }
+  .grid { display: grid; grid-template-columns: 180px 1fr 1fr 1fr; gap: 0; border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
+  .cell { padding: 10px 12px; border-bottom: 1px solid var(--color-border-tertiary); border-right: 1px solid var(--color-border-tertiary); display: flex; align-items: center; font-size: 13px; color: var(--color-text-primary); line-height: 1.4; }
+  .cell:last-child, .cell.no-right { border-right: none; }
+  .cell.header { background: var(--color-background-secondary); font-weight: 500; font-size: 12px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+  .cell.plan-header { flex-direction: column; align-items: flex-start; gap: 2px; padding: 14px 12px; }
+  .cell.plan-header.winner { background: #E1F5EE; border-bottom: 2px solid #1D9E75; }
+  .plan-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+  .plan-price { font-size: 20px; font-weight: 500; color: var(--color-text-primary); }
+  .plan-sub { font-size: 11px; color: var(--color-text-secondary); }
+  .plan-badge { font-size: 10px; font-weight: 500; background: #1D9E75; color: #E1F5EE; border-radius: 20px; padding: 1px 8px; margin-top: 2px; display: inline-block; }
+  .section-row .cell { background: var(--color-background-secondary); font-size: 11px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+  .label-cell { color: var(--color-text-secondary); font-size: 12px; }
+  .yes { color: #0F6E56; font-weight: 500; font-size: 13px; }
+  .no { color: var(--color-text-tertiary); font-size: 13px; }
+  .pay { color: #854F0B; font-size: 12px; }
+  .note { font-size: 11px; color: var(--color-text-secondary); }
+  .win-cell { background: #f0fbf6; }
+  .verdict { margin-top: 16px; border-radius: var(--border-radius-lg); padding: 14px 16px; background: var(--color-background-secondary); border: 1px solid var(--color-border-tertiary); }
+  .verdict-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; }
+  .vrow { display: flex; gap: 8px; margin-bottom: 5px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+  .vdot { width: 6px; height: 6px; min-width: 6px; border-radius: 50%; margin-top: 6px; }
+  .green { background: #1D9E75; }
+  .amber { background: #EF9F27; }
+  .red { background: #E24B4A; }
+  @media (prefers-color-scheme: dark) {
+    .cell.plan-header.winner { background: #04342C; }
+    .win-cell { background: #04342C44; }
+    .plan-badge { color: #04342C; }
+    .yes { color: #5DCAA5; }
+  }
+</style>
+<div class="wrap">
+<div class="grid">
+
+  <!-- Header row -->
+  <div class="cell header label-cell">Feature</div>
+  <div class="cell plan-header">
+    <span class="plan-title">Clerky Pay Per Use</span>
+    <span class="plan-price">$427</span>
+    <span class="plan-sub">+ pay per action</span>
+  </div>
+  <div class="cell plan-header winner">
+    <span class="plan-title">Clerky Lifetime</span>
+    <span class="plan-price">$819</span>
+    <span class="plan-sub">one-time, all-inclusive</span>
+    <span class="plan-badge">Best for you</span>
+  </div>
+  <div class="cell plan-header no-right">
+    <span class="plan-title">Stripe Atlas</span>
+    <span class="plan-price">$500</span>
+    <span class="plan-sub">+ $100/yr after yr 1</span>
+  </div>
+
+  <!-- Formation section -->
+  <div class="cell header section-row">Formation</div><div class="cell header section-row"></div><div class="cell header section-row"></div><div class="cell header section-row no-right"></div>
+
+  <div class="cell label-cell">Delaware C-Corp</div>
+  <div class="cell"><span class="yes">✓</span></div>
+  <div class="cell win-cell"><span class="yes">✓</span></div>
+  <div class="cell no-right"><span class="yes">✓</span></div>
+
+  <div class="cell label-cell">Expedited filing included</div>
+  <div class="cell"><span class="yes">✓</span> <span class="note">$203 included</span></div>
+  <div class="cell win-cell"><span class="yes">✓</span> <span class="note">$203 included</span></div>
+  <div class="cell no-right"><span class="yes">✓</span> <span class="note">next-day</span></div>
+
+  <div class="cell label-cell">1st year registered agent</div>
+  <div class="cell"><span class="yes">✓</span></div>
+  <div class="cell win-cell"><span class="yes">✓</span></div>
+  <div class="cell no-right"><span class="yes">✓</span></div>
+
+  <div class="cell label-cell">Ongoing agent (yr 2+)</div>
+  <div class="cell"><span class="note">~$125/yr separately</span></div>
+  <div class="cell win-cell"><span class="note">~$125/yr separately</span></div>
+  <div class="cell no-right"><span class="pay">$100/yr auto-renews</span></div>
+
+  <div class="cell label-cell">EIN (non-US founders)</div>
+  <div class="cell"><span class="yes">✓</span></div>
+  <div class="cell win-cell"><span class="yes">✓</span></div>
+  <div class="cell no-right"><span class="yes">✓</span></div>
+
+  <div class="cell label-cell">83(b) election filing</div>
+  <div class="cell"><span class="yes">✓</span></div>
+  <div class="cell win-cell"><span class="yes">✓</span></div>
+  <div class="cell no-right"><span class="yes">✓</span></div>
+
+  <div class="cell label-cell">Post-inc setup (bylaws, stock, IP)</div>
+  <div class="cell"><span class="pay">+$299</span></div>
+  <div class="cell win-cell"><span class="yes">✓ included</span></div>
+  <div class="cell no-right"><span class="yes">✓ included</span></div>
+
+  <div class="cell label-cell">Stock plan adoption</div>
+  <div class="cell"><span class="pay">+$199</span></div>
+  <div class="cell win-cell"><span class="yes">✓ included</span></div>
+  <div class="cell no-right"><span class="no">✗</span></div>
+
+  <div class="cell label-cell">Bank account application</div>
+  <div class="cell"><span class="yes">✓</span></div>
+  <div class="cell win-cell"><span class="yes">✓</span></div>
+  <div class="cell no-right"><span class="yes">✓</span></div>
+
+  <!-- Fundraising section -->
+  <div class="cell header section-row">Fundraising</div><div class="cell header section-row"></div><div class="cell header section-row"></div><div class="cell header section-row no-right"></div>
+
+  <div class="cell label-cell">SAFEs / convertible notes</div>
+  <div class="cell"><span class="pay">$9–$19 each</span></div>
+  <div class="cell win-cell"><span class="yes">✓ unlimited</span></div>
+  <div class="cell no-right"><span class="yes">✓ templates only</span></div>
+
+  <div class="cell label-cell">Legal doc quality</div>
+  <div class="cell"><span class="note">Attorney-grade</span></div>
+  <div class="cell win-cell"><span class="yes">Attorney-grade</span></div>
+  <div class="cell no-right"><span class="note">Cooley LLP templates</span></div>
+
+  <!-- Hiring section -->
+  <div class="cell header section-row">Hiring & equity</div><div class="cell header section-row"></div><div class="cell header section-row"></div><div class="cell header section-row no-right"></div>
+
+  <div class="cell label-cell">Offer letters / consulting agreements</div>
+  <div class="cell"><span class="pay">$19 each</span></div>
+  <div class="cell win-cell"><span class="yes">✓ unlimited</span></div>
+  <div class="cell no-right"><span class="note">Templates only</span></div>
+
+  <div class="cell label-cell">Stock option issuances</div>
+  <div class="cell"><span class="pay">$29 each</span></div>
+  <div class="cell win-cell"><span class="yes">✓ unlimited</span></div>
+  <div class="cell no-right"><span class="no">✗</span></div>
+
+  <div class="cell label-cell">NDAs</div>
+  <div class="cell"><span class="pay">per use</span></div>
+  <div class="cell win-cell"><span class="yes">✓ unlimited</span></div>
+  <div class="cell no-right"><span class="note">Templates only</span></div>
+
+  <!-- Maintenance section -->
+  <div class="cell header section-row">Maintenance</div><div class="cell header section-row"></div><div class="cell header section-row"></div><div class="cell header section-row no-right"></div>
+
+  <div class="cell label-cell">Add/change directors & officers</div>
+  <div class="cell"><span class="pay">$9 each</span></div>
+  <div class="cell win-cell"><span class="yes">✓ unlimited</span></div>
+  <div class="cell no-right"><span class="no">✗</span></div>
+
+  <div class="cell label-cell">Add co-founders</div>
+  <div class="cell"><span class="pay">$9 each</span></div>
+  <div class="cell win-cell"><span class="yes">✓ unlimited</span></div>
+  <div class="cell no-right"><span class="no">✗</span></div>
+
+  <!-- Extras section -->
+  <div class="cell header section-row">Extras</div><div class="cell header section-row"></div><div class="cell header section-row"></div><div class="cell header section-row no-right"></div>
+
+  <div class="cell label-cell">Partner perks / discounts</div>
+  <div class="cell"><span class="yes">✓</span></div>
+  <div class="cell win-cell"><span class="yes">✓</span></div>
+  <div class="cell no-right"><span class="yes">$50k+ incl. $2.5k Stripe credits</span></div>
+
+  <div class="cell label-cell">Stripe payment processing</div>
+  <div class="cell"><span class="no">✗</span></div>
+  <div class="cell win-cell"><span class="no">✗</span></div>
+  <div class="cell no-right"><span class="yes">✓ built-in</span></div>
+
+  <div class="cell label-cell">Supported countries</div>
+  <div class="cell"><span class="note">All (incl. Taiwan)</span></div>
+  <div class="cell win-cell"><span class="note">All (incl. Taiwan)</span></div>
+  <div class="cell no-right"><span class="note">140+ countries</span></div>
+
+  <!-- Total cost row -->
+  <div class="cell header section-row">Est. total yr 1</div><div class="cell header section-row"></div><div class="cell header section-row"></div><div class="cell header section-row no-right"></div>
+
+  <div class="cell label-cell">Realistic cost for your startup</div>
+  <div class="cell"><span style="color:var(--color-text-primary);font-weight:500">~$1,057+</span></div>
+  <div class="cell win-cell"><span style="color:#0F6E56;font-weight:500">$819 flat</span></div>
+  <div class="cell no-right"><span style="color:var(--color-text-primary);font-weight:500">~$600–700 yr 1</span><br><span class="note">but less coverage</span></div>
+
+</div>
+
+<div class="verdict">
+  <div class="verdict-title">The verdict — why Clerky Lifetime still wins for your situation</div>
+  <div class="vrow"><div class="vdot amber"></div><span><strong>Stripe Atlas ($500)</strong> is fast, polished, and the $50k in partner perks is genuinely valuable — especially the $2,500 in Stripe credits. But it's primarily a formation tool. Once you're incorporated, it hands you templates rather than managed legal workflows. It has no stock option issuance, no unlimited hiring docs, and no ongoing corporate maintenance. Great if you plan to use Stripe as your payment processor, but for hardware sold on Kickstarter you'll likely use Kickstarter's own payment system — making the Stripe ecosystem lock-in less relevant.</span></div>
+  <div class="vrow"><div class="vdot green"></div><span><strong>Clerky Lifetime ($819)</strong> costs $319 more than Atlas but gives you unlimited SAFEs, unlimited hiring documents, unlimited NDAs, stock plan adoption, and unlimited corporate maintenance — all for life. For a hardware startup heading toward investor fundraising with a growing team, you'll use every one of those features. The legal doc quality is also specifically designed for VC-backed startups, which matters when investors do due diligence.</span></div>
+  <div class="vrow"><div class="vdot red"></div><span><strong>Clerky Pay Per Use ($427+)</strong> is the worst option for your stage — it looks cheap upfront but costs more than everything else once you factor in the per-action fees.</span></div>
+</div>
+
+</div>
